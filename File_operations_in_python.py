@@ -1,26 +1,26 @@
-Hello There.
-My name is Kennedy Kimathi.
-Am Currently at PLP.
-I am a web developer, looking to solve problems and bring abput ideas to reality.
-Let's reach out to share ideas.
-Contact info: jrkennedy027@gmail.com   +254797658655
+def modify_file_content(filename):
+    try:
+        with open(filename, "r") as file:
+            content = file.read()
 
+        modified_content = content.upper()
 
-with open("input.txt", "w") as file:
-    file.write("Hello There.\n")
-    file.write("My name is Kennedy Kimathi. \n")
-    file.write("I am a web developer, looking to solve problems and bring abput ideas to reality.
-.\n")
-    file.write("Let's reach out to share ideas.
-\n")
-    file.write("Contact info: jrkennedy027@gmail.com   +254797658655
-.\n")
+        new_filename = "modified_" + filename
+        with open(new_filename, "w") as file:
+            file.write(modified_content)
 
+        print(f"Success! The modified content has been saved to {new_filename}")
 
-with open("input.txt", "r") as file:
-    content = file.read()
+    except FileNotFoundError:
+        print("Error: The file does not exist. Please check the filename and try again.")
+    except PermissionError:
+        print("Error: Permission denied. You don't have access to read this file.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
 
-word_count = len(content.split())
+filename = input("Enter the filename to read: ")
+modify_file_content(filename)
+
 
 processed_content = content.upper()
 
